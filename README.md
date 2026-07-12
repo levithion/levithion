@@ -1,6 +1,6 @@
 <!-- Header Banner -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=220&section=header&text=Shshank%20Singh&fontSize=42&fontColor=58a6ff&animation=fadeIn&fontAlignY=35&desc=ML%20Engineer%20%7C%20Competitive%20Programmer%20%7C%20Software%20Developer&descSize=16&descColor=8b949e&descAlignY=55" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=220&section=header&text=Shshank%20Singh&fontSize=42&fontColor=58a6ff&animation=fadeIn&fontAlignY=35&desc=ML%20Engineer%20%7C%20Problem%20Solver%20%7C%20Software%20Developer&descSize=16&descColor=8b949e&descAlignY=55" width="100%" />
 </div>
 
 <p align="center">
@@ -15,7 +15,7 @@
 
 ## About Me
 
-I'm a software developer from India with deep expertise in **Machine Learning**, **Natural Language Processing**, and **Computer Vision**. I design intelligent systems — from recommender engines that understand semantic meaning to real-time safety applications using deep learning. I'm also deeply invested in competitive programming, consistently sharpening my algorithmic thinking on platforms like LeetCode and Codeforces.
+I'm a software developer from India with deep expertise in **Machine Learning**, **Natural Language Processing**, and **Computer Vision**. I design intelligent systems — from recommender engines that understand semantic meaning to real-time safety applications using deep learning. I'm also deeply invested in problem solving, consistently sharpening my algorithmic thinking on platforms like LeetCode and Codeforces.
 
 ```python
 class Shshank:
@@ -191,7 +191,7 @@ me.say_hi()
 
 ---
 
-## Competitive Programming
+## Problem Solving
 
 <div align="center">
 
