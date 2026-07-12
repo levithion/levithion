@@ -234,7 +234,7 @@ me.say_hi()
 <br />
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=levithion&theme=darkhub&no-frame=true&no-bg=true&column=7" width="95%" />
+  <img src="https://github-trophies.vercel.app/?username=levithion&theme=darkhub&no-frame=true&no-bg=true&column=7" width="95%" />
 </div>
 
 ---
