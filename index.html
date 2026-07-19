@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shshank Singh | ML Engineer & Software Developer</title>
+    <meta name="description" content="Portfolio of Shshank Singh, a software developer specializing in Machine Learning, NLP, and Computer Vision.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">S.<span>Singh</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="greeting">Hi there, I'm</h2>
+            <h1 class="name">Shshank Singh</h1>
+            <div class="typing-container">
+                <span class="role-prefix">I am a </span><span class="typed-text"></span><span class="cursor">&nbsp;</span>
+            </div>
+            <p class="hero-desc">I design intelligent systems — from recommender engines that understand semantic meaning to real-time safety applications using deep learning.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="https://github.com/levithion" target="_blank" class="btn secondary-btn"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+            
+            <div class="social-links-hero">
+                <a href="https://www.linkedin.com/in/shshank-singh-levithion/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://leetcode.com/u/levithion/" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+                <a href="https://codolio.com/profile/7kai" target="_blank" title="Codolio"><i class="fas fa-laptop-code"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="glass-card terminal-card">
+                <div class="terminal-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span class="terminal-title">shshank_profile.py</span>
+                </div>
+                <div class="terminal-body">
+<pre><code class="language-python"><span class="keyword">class</span> <span class="class-name">Shshank</span>:
+    <span class="keyword">def</span> <span class="method">__init__</span>(<span class="keyword">self</span>):
+        <span class="keyword">self</span>.name      = <span class="string">"Shshank Singh"</span>
+        <span class="keyword">self</span>.role      = <span class="string">"ML Engineer"</span>
+        <span class="keyword">self</span>.interests = [<span class="string">"Deep Learning"</span>, 
+                          <span class="string">"NLP"</span>, 
+                          <span class="string">"Computer Vision"</span>]
+        
+    <span class="keyword">def</span> <span class="method">say_hi</span>(<span class="keyword">self</span>):
+        <span class="built-in">print</span>(<span class="string">"Let's build something remarkable!"</span>)
+
+me = Shshank()
+me.say_hi()
+<span class="cursor-blink">_</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="about-container">
+            <div class="about-text glass-panel">
+                <p>I'm an AI/ML-focused software engineer from India with hands-on experience building LLM-integrated applications, retrieval-augmented systems, and full-stack ML pipelines in Python.</p>
+                <p>I have practical experience with vector databases, embedding models, FastAPI backends, and applied use of Claude-based agentic tooling for AI-assisted development. I'm also deeply invested in problem-solving, consistently sharpening my algorithmic thinking. My approach is fast-iterating and experiment-driven, focusing on turning research into robust, live products.</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <img src="https://komarev.com/ghpvc/?username=levithion&style=flat&color=58a6ff&label=Profile+Views" alt="Profile Views" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">My <span>Experience</span></h2>
+        <div class="timeline">
+            <div class="timeline-item glass-panel">
+                <div class="timeline-date">May 2025 - Jul 2025</div>
+                <div class="timeline-content">
+                    <h3>Machine Learning Intern</h3>
+                    <h4>Indian Institute of Technology (BHU), Varanasi</h4>
+                    <p class="timeline-subtitle">Neural Collaborative Filtering Based Movie Recommender</p>
+                    <ul class="resume-list">
+                        <li>Architected a hybrid NeuMF model ((GMF + MLP)) that captures the subtle, nonlinear patterns behind why people like what they like, going well beyond what plain matrix factorization can express.</li>
+                        <li>Turned a research notebook into a living product: a FastAPI + PyTorch backend serving live predictions, wrapped in an interactive Streamlit/Plotly dashboard where users could watch recommendations adapt in real time.</li>
+                    </ul>
+                    <div class="project-links mt-3">
+                        <a href="https://github.com/levithion/NCF-Based-Movie-Recommender-System" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item glass-panel">
+                <div class="timeline-date">Project Experience</div>
+                <div class="timeline-content">
+                    <h3>Query-Based Book Recommendation System</h3>
+                    <ul class="resume-list">
+                        <li>Engineered and deployed an interactive semantic search platform on Streamlit Community Cloud that leverages all-MiniLM-L6-v2 embeddings and cosine similarity to translate plain-language queries into meaning-aware recommendations across a 7,000+ book library.</li>
+                    </ul>
+                    <div class="project-links mt-3">
+                        <a href="https://github.com/levithion/Query-Based-Book-Recommender-System-Using-Sentence-Transformers" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <div class="skills-grid">
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-code"></i> Languages</h3>
+                <div class="skill-tags">
+                    <span class="tag"><i class="fab fa-python"></i> Python (Primary)</span>
+                    <span class="tag"><i class="fas fa-c"></i> C / C++</span>
+                    <span class="tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tag"><i class="fas fa-chart-bar"></i> R</span>
+                    <span class="tag"><i class="fas fa-database"></i> SQL</span>
+                </div>
+            </div>
+            
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-brain"></i> AI & ML Tooling</h3>
+                <div class="skill-tags">
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Keras</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Sentence Transformers</span>
+                    <span class="tag">CLIP</span>
+                    <span class="tag">MobileNetV2</span>
+                    <span class="tag">NeuMF</span>
+                </div>
+            </div>
+            
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-search"></i> Retrieval & Vectors</h3>
+                <div class="skill-tags">
+                    <span class="tag">Qdrant</span>
+                    <span class="tag">Semantic Embeddings</span>
+                    <span class="tag">Cosine-Similarity</span>
+                    <span class="tag">RAG Concepts</span>
+                </div>
+            </div>
+
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-server"></i> Backend & APIs</h3>
+                <div class="skill-tags">
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">REST API Design</span>
+                    <span class="tag">JWT Auth</span>
+                    <span class="tag">Postman Testing</span>
+                </div>
+            </div>
+
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-desktop"></i> Frontend & Viz</h3>
+                <div class="skill-tags">
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">Plotly</span>
+                    <span class="tag"><i class="fab fa-html5"></i> HTML</span>
+                    <span class="tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                </div>
+            </div>
+
+            <div class="skill-category glass-panel">
+                <h3><i class="fas fa-database"></i> Data & Systems</h3>
+                <div class="skill-tags">
+                    <span class="tag">SQL / SQLite</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag"><i class="fab fa-git-alt"></i> Git</span>
+                    <span class="tag"><i class="fab fa-docker"></i> Docker</span>
+                    <span class="tag"><i class="fab fa-linux"></i> Linux CLI</span>
+                    <span class="tag">Multithreading</span>
+                    <span class="tag">OS Concepts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            <!-- Lumina -->
+            <div class="project-card glass-panel">
+                <div class="project-icon"><i class="fas fa-search"></i></div>
+                <div class="project-content">
+                    <h3>Lumina Distributed Multimodal Semantic Search Engine</h3>
+                    <span class="project-date">Feb 2026 - Mar 2026</span>
+                    <ul class="resume-list">
+                        <li>Built a search engine over 8,000+ images using natural-language queries, combining CLIP-VIT-B-32 embeddings with a Qdrant vector database for fast, accurate multimodal retrieval.</li>
+                        <li>Engineered a FastAPI ingestion backend with batch upserts and MPS-accelerated inference, exposed through a health-monitored REST API and Streamlit dashboard.</li>
+                    </ul>
+                    <div class="project-tech mt-3">
+                        <span>Python</span>
+                        <span>CLIP</span>
+                        <span>Qdrant</span>
+                        <span>FastAPI</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/levithion/Lumina" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- Context-Aware Huffman -->
+            <div class="project-card glass-panel">
+                <div class="project-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                <div class="project-content">
+                    <h3>Context-Aware Huffman Compressor</h3>
+                    <span class="project-date">Aug 2025 - Dec 2025</span>
+                    <ul class="resume-list">
+                        <li>Designed a context-aware Huffman coding scheme using an N-order Markov model, improving compression ratios by 15-20% over standard global-frequency Huffman on context-heavy text datasets.</li>
+                        <li>Built a Streamlit UI and CLI tool for entropy benchmarking, demonstrating a reduction of 1.2 bits/token on average and closely approaching theoretical conditional entropy bounds.</li>
+                    </ul>
+                    <div class="project-tech mt-3">
+                        <span>Python</span>
+                        <span>Algorithms</span>
+                        <span>Data Compression</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/levithion/Context-Aware-Huffman" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- Driver Drowsiness -->
+            <div class="project-card glass-panel">
+                <div class="project-icon"><i class="fas fa-car-side"></i></div>
+                <div class="project-content">
+                    <h3>Driver Drowsiness Detection System</h3>
+                    <span class="project-date">Jan 2025 - Apr 2025</span>
+                    <ul class="resume-list">
+                        <li>Developed a real-time CNN-based detection pipeline using MobileNetV2, achieving 94% precision and 92% recall in identifying micro-sleep indicators under varying lighting conditions.</li>
+                        <li>Tuned the model for edge deployment, maintaining high detection accuracy while achieving a processing latency of under 50ms (20+ FPS) on resource-constrained hardware.</li>
+                    </ul>
+                    <div class="project-tech mt-3">
+                        <span>Python</span>
+                        <span>MobileNetV2</span>
+                        <span>OpenCV</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/levithion/Driver-Drowsiness-Detection" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+
+            <!-- Thalassa Chatbot -->
+            <div class="project-card glass-panel">
+                <div class="project-icon"><i class="fas fa-comments"></i></div>
+                <div class="project-content">
+                    <h3>Thalassa - AI Mental Health Chatbot</h3>
+                    <span class="project-date">Sep 2024 - Oct 2024</span>
+                    <ul class="resume-list">
+                        <li>Architected a full-stack mental health platform using Flask, SQLite, and the Groq API (LLaMA 3.1) to deliver an empathetic AI companion with persistent conversational memory.</li>
+                        <li>Implemented JWT-secured authentication, a private journaling system, and dynamic mood-tracking analytics using Chart.js to visualize user data over time.</li>
+                    </ul>
+                    <div class="project-tech mt-3">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>LLaMA 3.1</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/levithion/Depressed-Person-Chatbot" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2 class="section-title">Education & <span>Leadership</span></h2>
+        
+        <div class="education-container">
+            <h3 class="subsection-heading"><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="timeline">
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-date">2022 - 2027</div>
+                    <div class="timeline-content">
+                        <h3>M.Tech. (Integrated) in Computer Science</h3>
+                        <h4>Vellore Institute of Technology, Vellore</h4>
+                        <p class="timeline-subtitle">Specializing in Data Science &bull; CGPA: 8.13/10.00</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass-panel">
+                    <div class="timeline-date">2009 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Army Public School, New Cantt, Allahabad</h3>
+                        <p class="timeline-subtitle">Class 12th: 94.6% (2020-2021) &bull; Class 10th: 92.4% (2018-2019)</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-heading mt-5"><i class="fas fa-certificate"></i> Certifications & Extracurriculars</h3>
+            <div class="glass-panel certifications-card">
+                <ul class="resume-list">
+                    <li><strong>Claude Code 101</strong> - Anthropic Education, issued June 2026 (Credential ID: 3rew5cdraówb, verified via Skilljar)</li>
+                    <li><strong>Student Manager, Guest Care Committee</strong> - Riviera '26 & Gravitas '25</li>
+                    <li><strong>Student Coordinator, Guest Care Committee</strong> - Riviera '25 & Gravitas '24</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="section">
+        <h2 class="section-title">GitHub & <span>Problem Solving</span></h2>
+        
+        <div class="stats-container">
+            <div class="stats-row glass-panel github-stats">
+                <h3>GitHub Analytics</h3>
+                <div class="stats-images">
+                    <img src="https://github-readme-stats.vercel.app/api?username=levithion&show_icons=true&theme=github_dark&hide_border=true&bg_color=transparent&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9" alt="GitHub Stats" />
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=levithion&layout=compact&theme=github_dark&hide_border=true&bg_color=transparent&title_color=58a6ff&text_color=c9d1d9" alt="Top Languages" />
+                </div>
+                <div class="stats-images mt-4">
+                    <img src="https://github-readme-streak-stats.herokuapp.com?user=levithion&theme=github-dark-blue&hide_border=true&background=transparent&stroke=30363d&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" alt="GitHub Streak" />
+                </div>
+            </div>
+
+            <div class="stats-row glass-panel problem-solving-stats mt-4">
+                <h3>Problem Solving</h3>
+                <div class="stats-images">
+                    <a href="https://leetcode.com/u/levithion/" target="_blank">
+                        <img src="https://leetcard.jacoblin.cool/levithion?theme=dark&font=JetBrains%20Mono&ext=contest" alt="LeetCode Stats" style="max-width: 100%; border-radius: 8px;" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h2>Let's build something <span>remarkable</span> together.</h2>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/shshank-singh-levithion/" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://github.com/levithion" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://leetcode.com/u/levithion/" target="_blank" class="footer-link">
+                    <i class="fas fa-code"></i> LeetCode
+                </a>
+                <a href="https://codolio.com/profile/7kai" target="_blank" class="footer-link">
+                    <i class="fas fa-laptop-code"></i> Codolio
+                </a>
+            </div>
+            <p class="copyright">© 2026 Shshank Singh. All rights reserved. Built with ❤️ and Code.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
