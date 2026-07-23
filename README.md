@@ -150,6 +150,26 @@ me.say_hi()
       </p>
     </td>
   </tr>
+  <tr>
+    <td width="50%">
+      <h3 align="center">TorchForge</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/torchforge">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        A local <strong>research-paper-to-PyTorch</strong> pipeline with architecture extraction, generation, validation, and a web workspace to streamline translation of academic research into functional models.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
+        <img src="https://img.shields.io/badge/LLMs-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
+      </p>
+    </td>
+    <td width="50%">
+    </td>
+  </tr>
 </table>
 
 ### ⚙️ Systems & Algorithms
