@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPV Control Tower</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834;
+  --q1: #86b6ef; --q2: #2a78d6; --q3: #104281;
+  --critical: #d03b3b; --serious: #ec835a; --warning: #fab219; --good: #0ca30c;
+  --crit-bg: #fbe4e4; --ser-bg: #fdebe3; --warn-bg: #fff4d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926;
+    --q1: #86b6ef; --q2: #3987e5; --q3: #184f95;
+    --crit-bg: #3a1d1d; --ser-bg: #3a261c; --warn-bg: #3a3118;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926;
+  --q1: #86b6ef; --q2: #3987e5; --q3: #184f95;
+  --crit-bg: #3a1d1d; --ser-bg: #3a261c; --warn-bg: #3a3118;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1240px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 8px; margin-bottom: 20px; }
+h1 { font-size: 22px; margin: 0; }
+h2 { font-size: 15px; margin: 0 0 12px; }
+h3 { font-size: 15px; margin: 0 0 8px; }
+.sub { color: var(--ink-2); font-size: 13px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.tile, .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.tile .k { color: var(--ink-2); font-size: 12px; }
+.tile .v { font-size: 24px; font-weight: 600; margin: 2px 0; }
+.tile .s { color: var(--muted); font-size: 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.chart { position: relative; height: 240px; }
+.note { color: var(--muted); font-size: 12px; margin: 8px 0 0; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--ink-2); font-weight: 600; border-bottom: 1px solid var(--axis); padding: 6px 8px; white-space: nowrap; }
+td { border-bottom: 1px solid var(--grid); padding: 6px 8px; vertical-align: top; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; color: var(--ink); }
+.pill::before { content: "●"; margin-right: 4px; }
+.pill.critical { background: var(--crit-bg); } .pill.critical::before { color: var(--critical); }
+.pill.high { background: var(--ser-bg); } .pill.high::before { color: var(--serious); }
+.pill.medium { background: var(--warn-bg); } .pill.medium::before { color: var(--warning); }
+.cellbar { display: inline-block; width: 60px; height: 6px; background: var(--grid); border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+.cellbar span { display: block; height: 100%; background: var(--s1); border-radius: 3px; }
+.ctl.fail strong { color: var(--critical); } .ctl.warn strong { color: var(--serious); }
+.commentary p { margin: 0 0 10px; } .commentary hr { border: 0; border-top: 1px solid var(--grid); }
+.commentary em { color: var(--muted); }
+button.theme { background: var(--surface); color: var(--ink-2); border: 1px solid var(--ring); border-radius: 8px; padding: 4px 10px; cursor: pointer; font: inherit; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div>
+    <h1>IPV Control Tower — month-end 30 Sep 2026</h1>
+    <div class="sub">Independent Price Verification · prudent valuation · fair value levelling · run 20260929T132611-4a590e · synthetic data</div>
+  </div>
+  <button class="theme" id="theme">Toggle theme</button>
+</header>
+
+<section class="tiles"><div class='tile'><div class='k'>Positions verified</div><div class='v'>1,200</div><div class='s'>97.2% independently sourced</div></div><div class='tile'><div class='k'>Open exceptions</div><div class='v'>96</div><div class='s'>6 critical · prior 83</div></div><div class='tile'><div class='k'>Proposed IPV reserve</div><div class='v'>USD 6.38m</div><div class='s'>prior USD 20.56m</div></div><div class='tile'><div class='k'>Aggregated AVA</div><div class='v'>USD 14.44m</div><div class='s'>MPU + close-out, 50% diversified</div></div><div class='tile'><div class='k'>Level transfers</div><div class='v'>74 ↓ / 18 ↑</div><div class='s'>195 positions at Level 3</div></div><div class='tile'><div class='k'>ML review queue</div><div class='v'>12</div><div class='s'>rule-compliant but unusual</div></div></section>
+
+<section class="grid">
+  <div class="card"><h2>Proposed IPV reserve vs aggregated AVA (USD)</h2><div class="chart"><canvas id="trend"></canvas></div>
+    <p class="note">Reserve = revaluation of breached positions to independent consensus.</p></div>
+  <div class="card"><h2>Open exceptions by severity</h2><div class="chart"><canvas id="sev"></canvas></div></div>
+</section>
+<section class="grid">
+  <div class="card"><h2>Proposed reserve by desk, 30 Sep 2026 (USD)</h2><div class="chart"><canvas id="desk"></canvas></div></div>
+  <div class="card"><h2>Fair value hierarchy by desk (derived, % of positions)</h2><div class="chart"><canvas id="lvl"></canvas></div></div>
+</section>
+
+<section class="grid">
+  <div class="card commentary"><h2>Draft commentary</h2><h3>IPV month-end summary - 30 Sep 2026</h3>
+<p><strong>Summary</strong></p>
+<p>IPV for 30 Sep 2026 covered 1,200 positions with independent-source coverage of 97.2%. There are 96 open exceptions (prior month 83), of which 6 are critical and 5 high. The proposed IPV adjustment on breached positions is -USD 6.38m versus -USD 20.56m at 31 Aug 2026.</p>
+<p><strong>Prudent valuation and levelling</strong></p>
+<p>Aggregated AVA (market price uncertainty and close-out cost) is USD 14.44m, against USD 14.21m in the prior month. Observability testing proposes 74 level downgrades and 18 upgrades, leaving 195 positions at Level 3.</p>
+<p><strong>Largest items</strong></p>
+<p>The largest exception, X1, is on the Credit desk (corp bond) with an indicated adjustment of -USD 1.28m and rule hits BREACH, FAT_FINGER.</p>
+<p><strong>Emerging risks</strong></p>
+<p>A systematic bias test flags Credit / corp bond: 85.2% of in-tolerance marks lean in the desk&#x27;s favour, averaging 0.46x tolerance. The anomaly model has queued 12 rule-compliant positions for analyst review, and 0 data controls failed at 30 Sep 2026.</p>
+<p><strong>Questions for desks</strong></p>
+<ul>
+<li>Can the desk evidence the mark on X1 with executable quotes?</li>
+<li>Why do marks on Credit / corp bond lean consistently in the desk&#x27;s favour this period?</li>
+</ul>
+<hr>
+<p><em>DRAFT - template commentary. Every figure is inserted from the run&#x27;s fact sheet, not written by the model. Requires reviewer sign-off before distribution.</em></p></div>
+  <div class="card"><h2>Hidden in tolerance: desk bias test</h2><p><strong>Credit / corp bond</strong>: 85% of in-tolerance marks lean in the desk's favour (mean 0.46× tolerance, t = 15.2). Every mark passes its individual check; the book as a whole does not.</p>
+    <h2 style="margin-top:16px">Data controls</h2><p>15 of 15 data controls passed at 30 Sep 2026.</p><p class='ctl fail'><strong>Earlier FAIL</strong> RECON_COUNT · FX on 31 Jul 2026 — loaded 155 vs front office 156</p></div>
+</section>
+
+<section class="card" style="margin-bottom:12px"><h2>Largest open exceptions</h2><div class="scroll">
+<table><thead><tr><th>Position</th><th>Desk</th><th>Instrument</th><th>Severity</th><th>Rule hits</th><th class="num">× tolerance</th><th class="num">Adjustment</th></tr></thead>
+<tbody><tr><td>P00287</td><td>Credit</td><td>TATA STEEL 30Y Corp Bond</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>47.5×</td><td class='num'>-USD 1.28m</td></tr>
+<tr><td>P00336</td><td>Equities</td><td>ROG 3Y Eq Option</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>50.4×</td><td class='num'>-USD 858k</td></tr>
+<tr><td>P00502</td><td>Credit</td><td>Single-name HY 5Y Cds</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>27.1×</td><td class='num'>-USD 323k</td></tr>
+<tr><td>P01063</td><td>Credit</td><td>ORACLE 2Y Corp Bond</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>39.1×</td><td class='num'>-USD 205k</td></tr>
+<tr><td>P00789</td><td>FX</td><td>USDCHF 30Y Fx Fwd</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>28.3×</td><td class='num'>-USD 139k</td></tr>
+<tr><td>P01153</td><td>Rates</td><td>BUND 10Y Govt Bond</td><td><span class='pill critical'>Critical</span></td><td>BREACH, FAT_FINGER</td><td class='num'>34.8×</td><td class='num'>-USD 74k</td></tr>
+<tr><td>P00387</td><td>Credit</td><td>Single-name HY 7Y Cds</td><td><span class='pill high'>High</span></td><td>BREACH</td><td class='num'>3.4×</td><td class='num'>-USD 639k</td></tr>
+<tr><td>P00680</td><td>Equities</td><td>NESN 2Y Eq Option</td><td><span class='pill high'>High</span></td><td>BREACH</td><td class='num'>3.7×</td><td class='num'>-USD 469k</td></tr>
+<tr><td>P00328</td><td>Credit</td><td>CDX IG 2Y Cds</td><td><span class='pill high'>High</span></td><td>BREACH</td><td class='num'>6.0×</td><td class='num'>-USD 380k</td></tr>
+<tr><td>P00707</td><td>Equities</td><td>ROG 20Y Eq Option</td><td><span class='pill high'>High</span></td><td>BREACH</td><td class='num'>3.1×</td><td class='num'>-USD 274k</td></tr>
+<tr><td>P00927</td><td>Equities</td><td>SMI 5Y Eq Option</td><td><span class='pill high'>High</span></td><td>BREACH</td><td class='num'>4.1×</td><td class='num'>-USD 253k</td></tr>
+<tr><td>P00846</td><td>Equities</td><td>SX5E 3Y Eq Option</td><td><span class='pill medium'>Medium</span></td><td>BREACH</td><td class='num'>2.2×</td><td class='num'>-USD 217k</td></tr></tbody></table></div></section>
+
+<section class="card"><h2>Detection against injected issues (all months)</h2><div class="scroll">
+<table><thead><tr><th>Issue type</th><th class="num">Injected</th><th class="num">Rules</th><th class="num">ML triage</th><th class="num">Desk-bias test</th><th class="num">Any layer</th></tr></thead>
+<tbody><tr><td>desk bias</td><td class='num'>258</td><td class='num'><div class='cellbar'><span style='width:9%'></span></div>9%</td><td class='num'><div class='cellbar'><span style='width:0%'></span></div>0%</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td></tr>
+<tr><td>fat finger</td><td class='num'>35</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td><td class='num'><div class='cellbar'><span style='width:6%'></span></div>6%</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td></tr>
+<tr><td>no quotes</td><td class='num'>84</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td><td class='num'><div class='cellbar'><span style='width:31%'></span></div>31%</td><td class='num'><div class='cellbar'><span style='width:8%'></span></div>8%</td><td class='num'><div class='cellbar'><span style='width:100%'></span></div>100%</td></tr>
+<tr><td>off market mark</td><td class='num'>211</td><td class='num'><div class='cellbar'><span style='width:65%'></span></div>65%</td><td class='num'><div class='cellbar'><span style='width:25%'></span></div>25%</td><td class='num'><div class='cellbar'><span style='width:4%'></span></div>4%</td><td class='num'><div class='cellbar'><span style='width:75%'></span></div>75%</td></tr>
+<tr><td>stale mark</td><td class='num'>49</td><td class='num'><div class='cellbar'><span style='width:67%'></span></div>67%</td><td class='num'><div class='cellbar'><span style='width:47%'></span></div>47%</td><td class='num'><div class='cellbar'><span style='width:0%'></span></div>0%</td><td class='num'><div class='cellbar'><span style='width:71%'></span></div>71%</td></tr>
+<tr><td>stale quote</td><td class='num'>133</td><td class='num'><div class='cellbar'><span style='width:87%'></span></div>87%</td><td class='num'><div class='cellbar'><span style='width:44%'></span></div>44%</td><td class='num'><div class='cellbar'><span style='width:6%'></span></div>6%</td><td class='num'><div class='cellbar'><span style='width:92%'></span></div>92%</td></tr></tbody></table></div>
+<p class="note">Rule false-positive rate on clean position-months: 1.4%. ML review rate on clean positions: 0.4%.
+Off-market marks below the materiality threshold are deliberately not raised by the rules.</p></section>
+</main>
+
+<script>
+const D = {"months": ["Apr 26", "May 26", "Jun 26", "Jul 26", "Aug 26", "Sep 26"], "breach": [6401789, 8275844, 16949976, 16019649, 20559392, 6375062], "ava": [14078267, 14755875, 14520657, 13866798, 14213418, 14439060], "sev": {"CRITICAL": [6, 4, 4, 7, 9, 6], "HIGH": [3, 5, 4, 2, 5, 5], "MEDIUM": [58, 75, 83, 66, 69, 85]}, "desks": ["Credit", "Equities", "Rates", "FX", "Treasury ALM"], "deskAdj": [3453610, 2350011, 333173, 238267, 0], "lvlDesks": ["Credit", "Equities", "FX", "Rates", "Treasury ALM"], "lvl": {"L1": [0.0, 17.6, 53.8, 44.9, 54.0], "L2": [72.4, 60.5, 37.2, 45.9, 38.1], "L3": [27.6, 22.0, 9.0, 9.2, 7.9]}};
+const charts = [];
+function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function money(v) { const a = Math.abs(v); return (a >= 1e6 ? (v/1e6).toFixed(1) + 'm' : a >= 1e3 ? (v/1e3).toFixed(0) + 'k' : v.toFixed(0)); }
+function draw() {
+  charts.forEach(c => c.destroy()); charts.length = 0;
+  const ink2 = css('--ink-2'), grid = css('--grid'), muted = css('--muted'), surface = css('--surface');
+  Chart.defaults.color = ink2;
+  Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+  const axes = (stacked, fmt, horizontal) => {
+    const val = { stacked, beginAtZero: true, grid: { color: grid }, border: { display: false }, ticks: { color: muted, callback: fmt } };
+    const cat = { stacked, grid: { display: false }, border: { color: css('--axis') }, ticks: { color: muted } };
+    return horizontal ? { x: val, y: cat } : { x: cat, y: val };
+  };
+  const base = { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { position: 'top', align: 'start', labels: { boxWidth: 10, boxHeight: 10, usePointStyle: true } } } };
+  charts.push(new Chart(document.getElementById('trend'), { type: 'line',
+    data: { labels: D.months, datasets: [
+      { label: 'Proposed IPV reserve', data: D.breach, borderColor: css('--s1'), backgroundColor: css('--s1'), borderWidth: 2, pointRadius: 4, pointBorderColor: surface, pointBorderWidth: 2 },
+      { label: 'Aggregated AVA', data: D.ava, borderColor: css('--s2'), backgroundColor: css('--s2'), borderWidth: 2, pointRadius: 4, pointBorderColor: surface, pointBorderWidth: 2 } ] },
+    options: { ...base, scales: axes(false, v => money(v)),
+      plugins: { ...base.plugins, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: USD ${money(c.raw)}` } } } } }));
+  const sevCol = { CRITICAL: css('--critical'), HIGH: css('--serious'), MEDIUM: css('--warning') };
+  charts.push(new Chart(document.getElementById('sev'), { type: 'bar',
+    data: { labels: D.months, datasets: Object.keys(D.sev).map(k => ({ label: k[0] + k.slice(1).toLowerCase(), data: D.sev[k],
+      backgroundColor: sevCol[k], borderColor: surface, borderWidth: { top: 2 }, borderRadius: 4, borderSkipped: 'bottom', maxBarThickness: 36 })) },
+    options: { ...base, scales: axes(true, v => v) } }));
+  charts.push(new Chart(document.getElementById('desk'), { type: 'bar',
+    data: { labels: D.desks, datasets: [{ label: 'Proposed reserve', data: D.deskAdj, backgroundColor: css('--s1'), borderRadius: 4, borderSkipped: 'start', maxBarThickness: 22 }] },
+    options: { ...base, indexAxis: 'y', interaction: { mode: 'nearest', axis: 'y', intersect: false }, scales: axes(false, v => money(v), true),
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` USD ${money(c.raw)}` } } } } }));
+  const q = { L1: css('--q1'), L2: css('--q2'), L3: css('--q3') };
+  charts.push(new Chart(document.getElementById('lvl'), { type: 'bar',
+    data: { labels: D.lvlDesks, datasets: Object.keys(D.lvl).map(k => ({ label: 'Level ' + k.slice(1), data: D.lvl[k],
+      backgroundColor: q[k], borderColor: surface, borderWidth: 1, maxBarThickness: 22 })) },
+    options: { ...base, indexAxis: 'y', interaction: { mode: 'index', axis: 'y', intersect: false }, scales: { ...axes(true, v => v + '%', true), x: { ...axes(true, v => v + '%', true).x, max: 100 } },
+      plugins: { ...base.plugins, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.raw}%` } } } } }));
+}
+document.getElementById('theme').onclick = () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark'; draw();
+};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+draw();
+</script>
+</body>
+</html>

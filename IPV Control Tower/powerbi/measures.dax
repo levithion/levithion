@@ -1,0 +1,71 @@
+// IPV Control Tower - DAX measures
+// Model: fact_ipv[position_id] -> dim_position[position_id] (many-to-one)
+//        fact_ipv[asof]        -> dim_date[asof]             (many-to-one)
+//        fact_exception[position_id] -> dim_position[position_id]
+// Sign convention: pv_adjustment_usd < 0 means the desk mark flatters P&L.
+
+// ---- Coverage -------------------------------------------------------------
+Positions = COUNTROWS ( fact_ipv )
+
+Independently Verified =
+CALCULATE ( [Positions], fact_ipv[n_quotes] > 0 )
+
+Coverage % = DIVIDE ( [Independently Verified], [Positions] )
+
+// ---- Exceptions -----------------------------------------------------------
+Exceptions =
+CALCULATE ( [Positions], fact_ipv[status] = "EXCEPTION" )
+
+Critical Exceptions =
+CALCULATE ( [Exceptions], fact_ipv[severity] = "CRITICAL" )
+
+Exceptions Prior Month =
+CALCULATE ( [Exceptions], DATEADD ( dim_date[asof], -1, MONTH ) )
+
+Exceptions MoM Δ = [Exceptions] - [Exceptions Prior Month]
+
+// ---- Valuation adjustments -----------------------------------------------
+Proposed IPV Reserve =
+// Shown as a positive reserve: revaluation of breached positions to consensus.
+- CALCULATE ( SUM ( fact_ipv[pv_adjustment_usd] ), fact_ipv[is_breach] = TRUE () )
+
+Proposed IPV Reserve Prior =
+CALCULATE ( [Proposed IPV Reserve], DATEADD ( dim_date[asof], -1, MONTH ) )
+
+Net Mark-to-Consensus = SUM ( fact_ipv[pv_adjustment_usd] )
+
+// EBA RTS core approach: 50% aggregation factor on MPU and close-out AVAs.
+AVA MPU = SUM ( fact_ipv[ava_mpu_usd] )
+AVA Close-out = SUM ( fact_ipv[ava_coc_usd] )
+Aggregated AVA = 0.5 * ( [AVA MPU] + [AVA Close-out] )
+
+// ---- Fair value hierarchy -------------------------------------------------
+Level 3 Positions =
+CALCULATE ( [Positions], fact_ipv[derived_level] = 3 )
+
+Level 3 % = DIVIDE ( [Level 3 Positions], [Positions] )
+
+Level Downgrades =
+SUMX ( fact_ipv, IF ( fact_ipv[derived_level] > RELATED ( dim_position[booked_level] ), 1 ) )
+
+Level Upgrades =
+SUMX ( fact_ipv, IF ( fact_ipv[derived_level] < RELATED ( dim_position[booked_level] ), 1 ) )
+
+// ---- Triage ---------------------------------------------------------------
+ML Review Queue =
+CALCULATE ( [Positions], fact_ipv[anomaly_flag] = 1, fact_ipv[status] = "PASS" )
+
+Open Workflow Items =
+CALCULATE ( COUNTROWS ( fact_exception ), fact_exception[status] IN { "OPEN", "EXPLAINED" } )
+
+Avg Exception Age (months) =
+CALCULATE ( AVERAGE ( fact_exception[periods_open] ), fact_exception[status] IN { "OPEN", "EXPLAINED" } )
+
+// ---- Formatting helpers ---------------------------------------------------
+Reserve Label =
+VAR v = [Proposed IPV Reserve]
+RETURN "USD " & FORMAT ( v / 1e6, "0.00" ) & "m"
+
+Latest Month Only =
+// Use as a visual-level filter (= 1) on pages that show a single month-end.
+IF ( MAX ( dim_date[is_latest] ), 1, 0 )

@@ -1,0 +1,21 @@
+[project]
+name = "ipv-control-tower"
+version = "1.0.0"
+description = "Independent Price Verification & valuation control pipeline: IPV checks, prudent valuation (AVA), fair value levelling, ML anomaly triage, Excel/Power BI reporting and guard-railed AI commentary."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "pandas>=2.2,<3",
+  "numpy>=2.0,<3",
+  "openpyxl>=3.1,<4",
+  "scikit-learn>=1.5,<2",
+  "anthropic>=0.70",
+  "pydantic>=2.7,<3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
