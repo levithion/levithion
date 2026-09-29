@@ -1,0 +1,58 @@
+table dim_position
+
+	column position_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: position_id
+
+	column instrument_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: instrument_id
+
+	column desk
+		dataType: string
+		summarizeBy: none
+		sourceColumn: desk
+
+	column asset_class
+		dataType: string
+		summarizeBy: none
+		sourceColumn: asset_class
+
+	column description
+		dataType: string
+		summarizeBy: none
+		sourceColumn: description
+
+	column currency
+		dataType: string
+		summarizeBy: none
+		sourceColumn: currency
+
+	column booked_level
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: booked_level
+
+	column sensitivity_usd
+		dataType: double
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: sensitivity_usd
+
+	column unit
+		dataType: string
+		summarizeBy: none
+		sourceColumn: unit
+
+	partition dim_position = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/dim_position.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				Typed = Table.TransformColumnTypes(Promoted, {{"position_id", type text}, {"instrument_id", type text}, {"desk", type text}, {"asset_class", type text}, {"description", type text}, {"currency", type text}, {"booked_level", Int64.Type}, {"sensitivity_usd", type number}, {"unit", type text}}, "en-US")
+			in
+				Typed

@@ -19,8 +19,9 @@ CALCULATE ( [Positions], fact_ipv[status] = "EXCEPTION" )
 Critical Exceptions =
 CALCULATE ( [Exceptions], fact_ipv[severity] = "CRITICAL" )
 
+// Month-ends are not contiguous days, so DATEADD is not usable; step back by month_index.
 Exceptions Prior Month =
-CALCULATE ( [Exceptions], DATEADD ( dim_date[asof], -1, MONTH ) )
+CALCULATE ( [Exceptions], REMOVEFILTERS ( dim_date ), dim_date[month_index] = MAX ( dim_date[month_index] ) - 1 )
 
 Exceptions MoM Δ = [Exceptions] - [Exceptions Prior Month]
 
@@ -30,7 +31,7 @@ Proposed IPV Reserve =
 - CALCULATE ( SUM ( fact_ipv[pv_adjustment_usd] ), fact_ipv[is_breach] = TRUE () )
 
 Proposed IPV Reserve Prior =
-CALCULATE ( [Proposed IPV Reserve], DATEADD ( dim_date[asof], -1, MONTH ) )
+CALCULATE ( [Proposed IPV Reserve], REMOVEFILTERS ( dim_date ), dim_date[month_index] = MAX ( dim_date[month_index] ) - 1 )
 
 Net Mark-to-Consensus = SUM ( fact_ipv[pv_adjustment_usd] )
 

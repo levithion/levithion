@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "card_4",
+  "position": {
+    "x": 852,
+    "y": 96,
+    "z": 0,
+    "height": 96,
+    "width": 196,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Level 3 %"
+                }
+              },
+              "queryRef": "_Measures.Level 3 %",
+              "nativeQueryRef": "Level 3 %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Level 3 %'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

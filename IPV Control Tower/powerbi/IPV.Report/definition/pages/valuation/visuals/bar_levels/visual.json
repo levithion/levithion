@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "bar_levels",
+  "position": {
+    "x": 660,
+    "y": 96,
+    "z": 0,
+    "height": 300,
+    "width": 600,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "hundredPercentStackedBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_position"
+                    }
+                  },
+                  "Property": "desk"
+                }
+              },
+              "queryRef": "dim_position.desk",
+              "nativeQueryRef": "desk"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Positions"
+                }
+              },
+              "queryRef": "_Measures.Positions",
+              "nativeQueryRef": "Positions"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_ipv"
+                    }
+                  },
+                  "Property": "derived_level"
+                }
+              },
+              "queryRef": "fact_ipv.derived_level",
+              "nativeQueryRef": "derived_level"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Positions by derived level'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

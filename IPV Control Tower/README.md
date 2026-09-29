@@ -62,7 +62,7 @@ month-ends, so the first two months of each freeze are missed on purpose.
 | Position mark review | [ipv/checks.py](ipv/checks.py): tolerance checks by asset class and fair value level, materiality, fat-finger, stale quote and stale mark, mark-vs-market movement |
 | Regulatory alignment | Prudent valuation AVAs (EBA RTS on prudent valuation, core approach: market price uncertainty and close-out cost, 50% aggregation), IFRS 13 levelling from input observability, four-eyes sign-off enforced by a database constraint |
 | Control automation | Completeness, uniqueness, referential and quote-sanity checks, plus front-office reconciliation before any valuation check runs. Exception log that survives reruns and ages items. Config and input hashes on every run. |
-| Reporting | Star-schema export plus [DAX measures](powerbi/measures.dax) and a [Power BI build guide](powerbi/README.md); HTML dashboard; formatted Excel pack with named tables |
+| Reporting | Star-schema export plus [DAX measures](powerbi/measures.dax) and a [Power BI project](powerbi/README.md) (`.pbip`, opens in Power BI Desktop); HTML dashboard; formatted Excel pack with named tables |
 | Excel and database tooling | [VBA toolkit](excel/IPV_Toolkit.bas) (desk filters, desk packs, Outlook drafts, sign-off checks and export); SQLite database with an ANSI [schema](sql/schema.sql) and [views](sql/views.sql) that port to Access or SQL Server |
 | Responsible use of AI | Isolation Forest review queue, plus [AI commentary](ipv/ai_commentary.py) in which the model cannot write a number (see below) |
 | Risks that per-position checks miss | The desk-bias test finds books that lean the desk's way while every mark passes. Month-end commentary and desk emails are drafted automatically. |
@@ -183,7 +183,7 @@ ipv/
   reporting/         excel.py · powerbi.py · dashboard.py
 sql/                 schema.sql · views.sql
 excel/               IPV_Toolkit.bas (VBA)
-powerbi/             measures.dax · README.md (model build guide)
+powerbi/             IPV.pbip (semantic model + report) · measures.dax · README.md
 tests/               unit, guardrail and end-to-end tests
 docs/                sample dashboard, commentary, screenshot
 ```

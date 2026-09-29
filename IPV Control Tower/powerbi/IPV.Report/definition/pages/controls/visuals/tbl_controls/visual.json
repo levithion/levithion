@@ -1,0 +1,95 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "tbl_controls",
+  "position": {
+    "x": 20,
+    "y": 96,
+    "z": 0,
+    "height": 604,
+    "width": 620,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_control"
+                    }
+                  },
+                  "Property": "control"
+                }
+              },
+              "queryRef": "fact_control.control",
+              "nativeQueryRef": "control"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_control"
+                    }
+                  },
+                  "Property": "scope"
+                }
+              },
+              "queryRef": "fact_control.scope",
+              "nativeQueryRef": "scope"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_control"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "fact_control.status",
+              "nativeQueryRef": "status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_control"
+                    }
+                  },
+                  "Property": "detail"
+                }
+              },
+              "queryRef": "fact_control.detail",
+              "nativeQueryRef": "detail"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Controls (filter status to non-PASS)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

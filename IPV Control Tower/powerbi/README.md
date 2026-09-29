@@ -1,9 +1,47 @@
 # Power BI model
 
-`python -m ipv run` writes a star schema to `output/powerbi/`. This guide builds the
-report from it in about 20 minutes. A `.pbix` is not committed because it is a binary
-that can't be reviewed in a diff; the model is fully described by the CSVs, the
-relationships below and [measures.dax](measures.dax).
+`python -m ipv run` writes a star schema to `output/powerbi/`. This folder holds a
+**Power BI Project** (PBIP) that sits on top of it: a semantic model (tables,
+relationships, measures) and a four-page report, stored as text (TMDL and PBIR) so
+changes show up in a diff, unlike a binary `.pbix`.
+
+## Quick start (Power BI web, works on a Mac)
+
+1. `make run` writes `output/powerbi/IPV_Star_Schema.xlsx`: six sheets, each a named Excel
+   table (`dim_position`, `dim_date`, `fact_ipv`, `fact_exception`, `fact_control`,
+   `fact_desk_bias`).
+2. At [app.powerbi.com](https://app.powerbi.com): *New → Report → Pick a published
+   dataset / Upload a file*, or *My workspace → Upload → Browse this computer* and pick the
+   workbook. When asked, choose *Import* and select all six tables.
+3. Open the semantic model and choose *Open data model*. In the model view drag
+   `position_id` and `asof` between tables to create the relationships in section 2 below.
+   Set `dim_date` as the date table and sort `month` by `month_index`.
+4. *New measure*: paste each measure from [measures.dax](measures.dax) (one at a time; the
+   web editor takes one measure per entry). Do these first: `Positions`, `Exceptions`,
+   `Coverage %`, `Proposed IPV Reserve`, `Aggregated AVA`.
+5. *Create a report* and build the pages in section 4 below.
+
+Refresh: re-upload the workbook after each `make run` (the service replaces the dataset
+of the same name), or move the file to OneDrive/SharePoint and use *Connect* so the
+service picks up the new file automatically.
+
+## Power BI Desktop (Windows) project
+
+Open [IPV.pbip](IPV.pbip) in Power BI Desktop, set the `DataFolder` parameter to the
+absolute path of `output/powerbi`, and apply. This is optional.
+
+| Path | What it is |
+|---|---|
+| [IPV.SemanticModel/](IPV.SemanticModel/) | TMDL model: six CSV-backed tables, five relationships, 22 measures in `_Measures` |
+| [IPV.Report/](IPV.Report/) | PBIR report: Month-end overview, Exception workbench, Prudent valuation & levelling, Controls & bias |
+| [measures.dax](measures.dax) | The same measures as plain DAX, for review and reuse |
+
+The project was written by hand from the schema, not saved out of Desktop. If Desktop
+reports a problem loading a visual, delete that visual's folder under
+`IPV.Report/definition/pages/*/visuals/` and rebuild it in the canvas; the model is
+independent of the report.
+
+Steps 1-4 below are the manual build, kept as the reference for what the project contains.
 
 ## 1. Load
 

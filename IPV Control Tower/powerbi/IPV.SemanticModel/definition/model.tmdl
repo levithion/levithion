@@ -1,0 +1,16 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+
+ref table _Measures
+ref table dim_position
+ref table dim_date
+ref table fact_ipv
+ref table fact_exception
+ref table fact_control
+ref table fact_desk_bias
+
+ref expression DataFolder
+
+ref cultureInfo en-US

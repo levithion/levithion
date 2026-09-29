@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "tbl_exceptions",
+  "position": {
+    "x": 20,
+    "y": 96,
+    "z": 0,
+    "height": 604,
+    "width": 1240,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "exception_id"
+                }
+              },
+              "queryRef": "fact_exception.exception_id",
+              "nativeQueryRef": "exception_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "desk"
+                }
+              },
+              "queryRef": "fact_exception.desk",
+              "nativeQueryRef": "desk"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "severity"
+                }
+              },
+              "queryRef": "fact_exception.severity",
+              "nativeQueryRef": "severity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "fact_exception.status",
+              "nativeQueryRef": "status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "periods_open"
+                }
+              },
+              "queryRef": "fact_exception.periods_open",
+              "nativeQueryRef": "periods_open"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "latest_flags"
+                }
+              },
+              "queryRef": "fact_exception.latest_flags",
+              "nativeQueryRef": "latest_flags"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "latest_pv_usd"
+                }
+              },
+              "queryRef": "fact_exception.latest_pv_usd",
+              "nativeQueryRef": "latest_pv_usd"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_exception"
+                    }
+                  },
+                  "Property": "reviewer"
+                }
+              },
+              "queryRef": "fact_exception.reviewer",
+              "nativeQueryRef": "reviewer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_position"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "dim_position.description",
+              "nativeQueryRef": "description"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Exception log'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

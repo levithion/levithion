@@ -1,0 +1,57 @@
+table fact_desk_bias
+
+	column asof
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		summarizeBy: none
+		sourceColumn: asof
+
+	column desk
+		dataType: string
+		summarizeBy: none
+		sourceColumn: desk
+
+	column asset_class
+		dataType: string
+		summarizeBy: none
+		sourceColumn: asset_class
+
+	column n
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: n
+
+	column mean_tol_ratio
+		dataType: double
+		formatString: 0.000
+		summarizeBy: none
+		sourceColumn: mean_tol_ratio
+
+	column t_stat
+		dataType: double
+		formatString: 0.00
+		summarizeBy: none
+		sourceColumn: t_stat
+
+	column share_same_sign
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: share_same_sign
+
+	column flagged
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: flagged
+
+	partition fact_desk_bias = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_desk_bias.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				Typed = Table.TransformColumnTypes(Promoted, {{"asof", type date}, {"desk", type text}, {"asset_class", type text}, {"n", Int64.Type}, {"mean_tol_ratio", type number}, {"t_stat", type number}, {"share_same_sign", type number}, {"flagged", Int64.Type}}, "en-US")
+			in
+				Typed

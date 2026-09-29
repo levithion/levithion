@@ -1,0 +1,19 @@
+relationship fact_ipv_position_id_to_dim_position_position_id
+	fromColumn: fact_ipv.position_id
+	toColumn: dim_position.position_id
+
+relationship fact_ipv_asof_to_dim_date_asof
+	fromColumn: fact_ipv.asof
+	toColumn: dim_date.asof
+
+relationship fact_exception_position_id_to_dim_position_position_id
+	fromColumn: fact_exception.position_id
+	toColumn: dim_position.position_id
+
+relationship fact_control_asof_to_dim_date_asof
+	fromColumn: fact_control.asof
+	toColumn: dim_date.asof
+
+relationship fact_desk_bias_asof_to_dim_date_asof
+	fromColumn: fact_desk_bias.asof
+	toColumn: dim_date.asof

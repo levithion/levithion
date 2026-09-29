@@ -1,0 +1,80 @@
+table fact_exception
+
+	column exception_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: exception_id
+
+	column position_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: position_id
+
+	column desk
+		dataType: string
+		summarizeBy: none
+		sourceColumn: desk
+
+	column first_seen
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		summarizeBy: none
+		sourceColumn: first_seen
+
+	column last_seen
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		summarizeBy: none
+		sourceColumn: last_seen
+
+	column periods_open
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: periods_open
+
+	column latest_flags
+		dataType: string
+		summarizeBy: none
+		sourceColumn: latest_flags
+
+	column latest_pv_usd
+		dataType: double
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: latest_pv_usd
+
+	column severity
+		dataType: string
+		summarizeBy: none
+		sourceColumn: severity
+
+	column status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status
+
+	column preparer
+		dataType: string
+		summarizeBy: none
+		sourceColumn: preparer
+
+	column reviewer
+		dataType: string
+		summarizeBy: none
+		sourceColumn: reviewer
+
+	column commentary
+		dataType: string
+		summarizeBy: none
+		sourceColumn: commentary
+
+	partition fact_exception = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(DataFolder & "/fact_exception.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				Typed = Table.TransformColumnTypes(Promoted, {{"exception_id", type text}, {"position_id", type text}, {"desk", type text}, {"first_seen", type date}, {"last_seen", type date}, {"periods_open", Int64.Type}, {"latest_flags", type text}, {"latest_pv_usd", type number}, {"severity", type text}, {"status", type text}, {"preparer", type text}, {"reviewer", type text}, {"commentary", type text}}, "en-US")
+			in
+				Typed
