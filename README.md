@@ -7,7 +7,7 @@
   <a href="https://www.linkedin.com/in/shshank-singh-levithion/"><img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" /></a>
   <a href="https://github.com/levithion"><img src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white" /></a>
   <a href="https://leetcode.com/u/levithion/"><img src="https://img.shields.io/badge/-LeetCode-FFA116?style=flat&logo=leetcode&logoColor=black" /></a>
-  <a href="https://codolio.com/profile/7kai"><img src="https://img.shields.io/badge/-Codolio-blue?style=flat&logo=codeforces&logoColor=white" /></a>
+  <a href="https://takeuforward.org/profile/levi7kai"><img src="https://img.shields.io/badge/-takeUforward-2F8D46?style=flat&logoColor=white" /></a>
   <img src="https://komarev.com/ghpvc/?username=levithion&style=flat&color=58a6ff&label=Profile+Views" />
 </p>
 
@@ -22,7 +22,7 @@ class Shshank:
     def __init__(self):
         self.name      = "Shshank Singh"
         self.role      = "ML Engineer & Software Developer"
-        self.languages = ["Python", "C++", "Java", "TypeScript", "SQL"]
+        self.languages = ["Python", "C++", "Java", "SQL"]
         self.interests = ["LLMs & RAG", "Deep Learning", "NLP", "Computer Vision", "Algorithms"]
         self.currently = "Building local-first ML tools & intelligent systems"
     
@@ -45,8 +45,6 @@ me.say_hi()
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white" />
 <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
 <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
 
   </td>
@@ -146,22 +144,7 @@ me.say_hi()
         <img src="https://img.shields.io/badge/LLaMA_3.1-0467DF?style=flat-square&logo=meta&logoColor=white" />
       </p>
     </td>
-    <td width="50%" valign="top">
-      <h3 align="center">Operator Health Monitor</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/caterpillar">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        Production-style monitoring for heavy-machine operators: seat vibration and whole-body exposure, plus cabin air quality and thermal health. A FastAPI backend streams real-time <strong>Random Forest and Isolation Forest</strong> predictions over SSE to a React dashboard, shipped with Docker Compose and CI.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-      </p>
+    <td width="50%">
     </td>
   </tr>
 </table>
@@ -266,9 +249,13 @@ me.say_hi()
 <a href="https://leetcode.com/u/levithion/">
   <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" />
 </a>
-<a href="https://codolio.com/profile/7kai">
-  <img src="https://img.shields.io/badge/Codolio-7kai-2962FF?style=for-the-badge&logo=codeforces&logoColor=white" />
+<a href="https://takeuforward.org/profile/levi7kai">
+  <img src="https://img.shields.io/badge/takeUforward-levi7kai-2F8D46?style=for-the-badge&logoColor=white" />
 </a>
+
+<br />
+
+**361** DSA problems solved on takeUforward · Arrays, DP, Graphs, Linked Lists and Strings are my strongest topics
 
 </div>
 
