@@ -15,16 +15,16 @@
 
 ## About Me
 
-I'm a software developer from India with deep expertise in **Machine Learning**, **Natural Language Processing**, and **Computer Vision**. I design intelligent systems — from recommender engines that understand semantic meaning to real-time safety applications using deep learning. I'm also deeply invested in problem solving, consistently sharpening my algorithmic thinking on platforms like LeetCode and Codeforces.
+I'm a software developer from India with deep expertise in **Machine Learning**, **Natural Language Processing**, and **Computer Vision**. I design intelligent systems — from local-first paper-to-code and visual search tools to semantic recommenders, real-time safety models and streaming ML monitoring. I'm also deeply invested in problem solving, consistently sharpening my algorithmic thinking on platforms like LeetCode and Codeforces.
 
 ```python
 class Shshank:
     def __init__(self):
         self.name      = "Shshank Singh"
         self.role      = "ML Engineer & Software Developer"
-        self.languages = ["Python", "C++", "Java", "JavaScript"]
-        self.interests = ["Deep Learning", "NLP", "Computer Vision", "Algorithms"]
-        self.currently = "Building intelligent systems & solving hard problems"
+        self.languages = ["Python", "C++", "Java", "TypeScript", "SQL"]
+        self.interests = ["LLMs & RAG", "Deep Learning", "NLP", "Computer Vision", "Algorithms"]
+        self.currently = "Building local-first ML tools & intelligent systems"
     
     def say_hi(self):
         print("Thanks for visiting! Let's build something remarkable together.")
@@ -45,13 +45,14 @@ me.say_hi()
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white" />
 <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
 <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white" />
 
   </td>
     <td valign="top" width="33%">
 
-#### ML / Data Science
+#### ML / AI / Data
 <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" />
 <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
 <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" />
@@ -59,11 +60,18 @@ me.say_hi()
 <img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
 <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
 <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" />
+<img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square&logoColor=white" />
+<img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logoColor=white" />
 
   </td>
     <td valign="top" width="33%">
 
-#### Tools & Platforms
+#### Backend, Tools & Platforms
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
+<img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" />
 <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
 <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" />
 <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
@@ -79,120 +87,28 @@ me.say_hi()
 
 ## Featured Projects
 
-### 🧠 AI & Machine Learning
+### 🧠 AI & Machine Learning Systems
 
 <table>
   <tr>
-    <td width="50%">
-      <h3 align="center">Query-Based Book Recommender</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/Query-Based-Book-Recommender-System-Using-Sentence-Transformers">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        A semantic search-powered recommender system using <strong>Sentence Transformers</strong> to encode book descriptions into dense vector embeddings. Users type natural language queries and the system returns the most semantically relevant books — going far beyond simple keyword matching.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
-        <img src="https://img.shields.io/badge/NLP-4285F4?style=flat-square&logoColor=white" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">NCF-Based Movie Recommender</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/NCF-Based-Movie-Recommender-System">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        Implementation of <strong>Neural Collaborative Filtering (NCF)</strong> that models complex, non-linear user-item interactions for personalized movie recommendations. Combines Generalized Matrix Factorization (GMF) with a Multi-Layer Perceptron to learn latent features from implicit feedback.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Deep_Learning-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
-        <img src="https://img.shields.io/badge/RecSys-333333?style=flat-square&logoColor=white" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center">Driver Drowsiness Detection</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/Driver-Drowsiness-Detection">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        A real-time <strong>computer vision</strong> system that monitors a driver's facial landmarks to detect signs of drowsiness and fatigue. Uses eye aspect ratio (EAR) analysis and facial keypoint detection to trigger alerts before dangerous microsleep events occur.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white" />
-        <img src="https://img.shields.io/badge/dlib-008000?style=flat-square&logoColor=white" />
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center">Depression Support Chatbot</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/Depressed-Person-Chatbot">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        A conversational AI agent designed to provide <strong>empathetic, context-aware</strong> responses to users experiencing emotional distress. Built with NLP techniques to understand sentiment and maintain meaningful dialogue flow while offering supportive interactions.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/NLP-4285F4?style=flat-square&logoColor=white" />
-        <img src="https://img.shields.io/badge/Chatbot-00A67E?style=flat-square&logoColor=white" />
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
+    <td width="50%" valign="top">
       <h3 align="center">TorchForge</h3>
       <p align="center">
-        <a href="https://github.com/levithion/torchforge">
+        <a href="https://github.com/levithion/TorchForge">
           <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
         </a>
       </p>
       <p>
-        A local <strong>research-paper-to-PyTorch</strong> pipeline with architecture extraction, generation, validation, and a web workspace to streamline translation of academic research into functional models.
+        A local-first <strong>research-paper-to-PyTorch</strong> pipeline. Extracts text and figures from a PDF, parses them into a strict architecture graph, generates an importable <code>torch.nn.Module</code> and validates it on CPU, CUDA or Apple MPS, with a browser workspace (TorchForge Studio) to inspect every phase.
       </p>
       <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
         <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
-        <img src="https://img.shields.io/badge/LLMs-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
+        <img src="https://img.shields.io/badge/Ollama-111111?style=flat-square&logoColor=white" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
       </p>
     </td>
-    <td width="50%">
-    </td>
-  </tr>
-</table>
-
-### ⚙️ Systems & Algorithms
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3 align="center">Context-Aware Huffman Coding</h3>
-      <p align="center">
-        <a href="https://github.com/levithion/Context-Aware-Huffman">
-          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
-        </a>
-      </p>
-      <p>
-        A novel extension to classical Huffman coding that incorporates <strong>contextual information</strong> from surrounding symbols to build more efficient compression trees. Achieves better compression ratios by adapting encoding based on character co-occurrence patterns.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Algorithms-FF6B6B?style=flat-square&logoColor=white" />
-        <img src="https://img.shields.io/badge/Data_Compression-333333?style=flat-square&logoColor=white" />
-      </p>
-    </td>
-    <td width="50%">
+    <td width="50%" valign="top">
       <h3 align="center">Lumina</h3>
       <p align="center">
         <a href="https://github.com/levithion/Lumina">
@@ -200,10 +116,136 @@ me.say_hi()
         </a>
       </p>
       <p>
-        A Python-based project exploring creative applications of programming. Demonstrates clean architecture, modular design, and a focus on building tools that are both functional and elegant.
+        <strong>Private, local-first visual memory search for macOS.</strong> Find screenshots and photos by describing them. CLIP vectors, SmolVLM captions and OCR text are fused in an embedded Qdrant index, with time-aware queries ("invoices since June"), duplicate detection and a live file watcher. Nothing leaves your machine.
       </p>
       <p>
         <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/CLIP-412991?style=flat-square&logoColor=white" />
+        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
+        <img src="https://img.shields.io/badge/Qdrant-DC244C?style=flat-square&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">Thalassa: Mental Health Companion</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/Depressed-Person-Chatbot">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <a href="https://levithin.pythonanywhere.com">
+          <img src="https://img.shields.io/badge/Live_Demo-58a6ff?style=for-the-badge&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        A stateful, empathetic conversational AI companion powered by <strong>LLaMA 3.1</strong> via Groq. Includes JWT-secured accounts, private journaling, mood analytics with Chart.js and a library of coping resources.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" />
+        <img src="https://img.shields.io/badge/LLaMA_3.1-0467DF?style=flat-square&logo=meta&logoColor=white" />
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">Operator Health Monitor</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/caterpillar">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        Production-style monitoring for heavy-machine operators: seat vibration and whole-body exposure, plus cabin air quality and thermal health. A FastAPI backend streams real-time <strong>Random Forest and Isolation Forest</strong> predictions over SSE to a React dashboard, shipped with Docker Compose and CI.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+### 🔍 Recommenders & Computer Vision
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">Query-Based Book Recommender</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/Query-Based-Book-Recommender-System-Using-Sentence-Transformers">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <a href="https://query-based-book-recommender.streamlit.app">
+          <img src="https://img.shields.io/badge/Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        Semantic book search over thousands of descriptions using dense <strong>Sentence Transformer</strong> embeddings. Type a natural-language query and get the most relevant books, well beyond keyword matching.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
+        <img src="https://img.shields.io/badge/NLP-4285F4?style=flat-square&logoColor=white" />
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">NCF-Based Movie Recommender</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/NCF-Based-Movie-Recommender-System">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <a href="https://ncf-based-movie-recommender-system.streamlit.app">
+          <img src="https://img.shields.io/badge/Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        <strong>Neural Collaborative Filtering</strong> that learns non-linear user-movie interactions from latent embeddings, combining generalized matrix factorization with an MLP and served through FastAPI.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Deep_Learning-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
+        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">Driver Drowsiness Detection</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/Driver-Drowsiness-Detection">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <a href="https://driver-drowsiness-detection-system.streamlit.app">
+          <img src="https://img.shields.io/badge/Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        A real-time webcam app that crops the eye region with OpenCV and classifies drowsy vs alert with a <strong>MobileNetV2</strong> transfer-learning model, smoothing predictions over a rolling window to ignore blinks and sounding an alert when drowsiness persists.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white" />
+        <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white" />
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">Context-Aware Huffman Coding</h3>
+      <p align="center">
+        <a href="https://github.com/levithion/Context-Aware-Huffman">
+          <img src="https://img.shields.io/badge/View_Code-181717?style=for-the-badge&logo=github&logoColor=white" />
+        </a>
+        <a href="https://context-aware-huffman.streamlit.app">
+          <img src="https://img.shields.io/badge/Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
+        </a>
+      </p>
+      <p>
+        An <strong>N-order Markov extension</strong> of classic Huffman compression that builds a separate Huffman tree per context, with word and character modes, memory-aware pruning, a CLI and a Streamlit dashboard for entropy and efficiency analysis.
+      </p>
+      <p>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Algorithms-FF6B6B?style=flat-square&logoColor=white" />
+        <img src="https://img.shields.io/badge/Data_Compression-333333?style=flat-square&logoColor=white" />
       </p>
     </td>
   </tr>
